@@ -37,9 +37,12 @@ function montheme_menu_link_class($attrs) {
 }
 
 function montheme_pagination() {
+    $pages = paginate_links(['type' => 'array']);
+    if($pages === null) {
+        return;
+    }
     echo '<nav aria-label="Pagination" class="my-4">';
     echo '<ul class="pagination">';
-    $pages = paginate_links(['type' => 'array']);
     foreach($pages as $page){
         // page active avec fond bleu 
         $active = strpos($page, 'current') !== false; 
