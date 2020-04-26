@@ -62,6 +62,33 @@ function montheme_pagination() {
     echo '</nav>';
 }
 
+/**
+ * 
+ * Prend en premier le nom de la taxonomy 
+ * En second, le post type qui lui sera associée
+ * En troisième, prend différent élément
+ */
+function montheme_init() {
+    register_taxonomy('sport', 'post', [
+        'labels' => [
+            'name'          => 'Sport',
+            'singular_name' => 'Sports',
+            'plural_name'   => 'Recherche des sports',
+            'search_items'  => 'Rechercher des sports',
+            'all_item'      => 'Tous les sports',
+            'edit_item'     => 'Editer le sport',
+            'update_item'   => 'Mettre à jour le sport',
+            'add_new_item'  => 'Ajouter un nouveau sport',
+            'new_item_name' => 'Ajouter un nouveau sport',
+            'nemu_name'     => 'Sport',
+        ],
+        'show_in_rest'      => 'true', // ajout de la catégorie dans l'article que nous souhaitons modifier
+        'hierarchical'      => 'true', // Permet d'afficher en checkbox en lieu de les taper 
+        'show_admin_column' => 'true' // Permet d'afficher direcrtement le sport dans la colonne attribué
+    ]);
+}
+
+add_action('init', 'montheme_init');
 add_action('after_setup_theme', 'montheme_supports');
 add_action('wp_enqueue_scripts', 'montheme_register_assets'); // Quand A est appelé alors il appelle ma function
 
