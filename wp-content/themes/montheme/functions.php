@@ -86,6 +86,16 @@ function montheme_init() {
         'hierarchical'      => 'true', // Permet d'afficher en checkbox en lieu de les taper 
         'show_admin_column' => 'true' // Permet d'afficher direcrtement le sport dans la colonne attribué
     ]);
+
+    register_post_type('bien', [
+        'label' => 'Bien',
+        'public' => true,
+        'menu_position' => 3,
+        'menu_icon' => 'dashicons-building',
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'show_in_rest' => true,
+        'has_archives' => true,
+    ]);
 }
 
 add_action('init', 'montheme_init');
