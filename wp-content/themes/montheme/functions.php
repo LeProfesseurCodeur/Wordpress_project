@@ -1,10 +1,11 @@
 <?php 
-
+require_once('walker/CommentWalker.php');
 
 function montheme_supports () {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('menus');
+    add_theme_support('html5');
     register_nav_menu('header', 'En tête du menu');//Créer son menu depuis WP
     register_nav_menu('footer', 'Pied de page');
 
@@ -190,5 +191,8 @@ function montheme_register_widget() {
 }
 add_action('widgets_init', 'montheme_register_widget');
 
+add_filter('comment_form_default_fields', function($fields) {
+   
+});
 
 ?> 
